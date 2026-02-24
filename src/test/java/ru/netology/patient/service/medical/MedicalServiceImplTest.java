@@ -83,8 +83,8 @@ class MedicalServiceImplTest {
         MedicalService medicalService = new MedicalServiceImpl(patientInfoFileRepository, sendAlertService);
         medicalService.checkTemperature("userId_1", new BigDecimal("34.0"));
 
-        String message = String.format("Warning, patient with id: %s, need help\r\n", patientInfo.getId());
-        assertEquals(message, output.toString());
+        String message = String.format("Warning, patient with id: %s, need help", patientInfo.getId());
+        assertEquals(message, output.toString().strip());
     }
 
     @Test
